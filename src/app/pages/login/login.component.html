@@ -1,0 +1,42 @@
+<div class="vh-100 d-flex position-relative">
+  <!-- Lado izquierdo violeta -->
+  <div class="w-50 h-100 bg-purple"></div>
+
+  <!-- Lado derecho gris claro con formulario -->
+  <div class="w-50 d-flex align-items-center justify-content-center h-100 bg-light" style="z-index: 1;">
+    <div class="card shadow p-4 form-card">
+      <h3 class="text-center mb-4 text-secondary">Bienvenido</h3>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label>Email</label>
+          <input type="email" class="form-control" formControlName="email" placeholder="Email">
+          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger small">
+            Ingrese un email válido
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label>Contraseña</label>
+          <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
+          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger small">
+            La contraseña es obligatoria
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mb-2" [disabled]="loginForm.invalid">Ingresar</button>
+        <button type="button" class="btn btn-secondary w-100 mb-3">Registrarse</button>
+
+        <div class="text-center">
+          <a href="#" class="small text-primary">¿Olvidó su contraseña?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Curva centrada, sobrepuesta -->
+<div class="position-absolute top-0 start-50 translate-middle-x h-100" style="width: 200px; z-index: 2; transform: translateX(-50%) translateX(40px);">
+    <svg class="w-100 h-100" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M 0 0 Q 100 50 0 100 L 100 100 L 100 0 Z" fill="#f8f9fa" />
+    </svg>
+  </div>
+</div>

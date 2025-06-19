@@ -1,0 +1,15 @@
+.bg-purple {
+  background-color: #7b6cc9;
+}
+
+.form-card {
+  border-radius: 20px;
+  width: 400px;
+  z-index: 3; /* Sobre la curva */
+}
+
+button.btn-primary,
+button.btn-secondary {
+  background-color: #7b6cc9;
+  border: none;
+}

@@ -1,0 +1,30 @@
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+  <div class="card shadow-lg p-4" style="min-width: 500px;">
+    <h2 class="text-center mb-4">Agregar Restaurante</h2>
+
+    <form [formGroup]="restauranteForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="fw-bold">Nombre del Restaurante</label>
+        <input type="text" class="form-control" formControlName="nombre">
+      </div>
+
+      <div class="mb-3">
+        <label class="fw-bold">Dirección</label>
+        <input type="text" class="form-control" formControlName="direccion">
+      </div>
+
+      <div class="mb-3">
+        <label class="fw-bold">ID</label>
+        <input type="text" class="form-control" formControlName="id">
+      </div>
+
+      <div class="mb-3">
+        <label class="fw-bold">URL de la Imagen</label>
+        <input type="text" class="form-control" formControlName="imagenUrl">
+      </div>
+
+      <button type="submit" class="btn btn-success w-100" [disabled]="restauranteForm.invalid">Agregar</button>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <h2 class="text-center mb-5">Restaurantes</h2>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let restaurante of restaurantes">
+      <div class="card h-100 shadow">
+        <img [src]="restaurante.imagen" class="card-img-top" alt="{{ restaurante.nombre }}">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ restaurante.nombre }}</h5>
+          <p class="card-text">{{ restaurante.direccion }}</p>
+          <button class="btn btn-primary w-100">Ingresar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
