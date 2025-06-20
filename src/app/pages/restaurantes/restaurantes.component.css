@@ -1,0 +1,31 @@
+.bg-purple {
+  background-color: #7b6cc9;
+}
+
+.btn-light-purple {
+  background-color: #e2d7f7;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+}
+
+.card {
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+.pagination .page-link {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #b89ef2;
+  border-color: #b89ef2;
+}

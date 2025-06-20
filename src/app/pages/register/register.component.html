@@ -1,14 +1,6 @@
 <div class="vh-100 d-flex position-relative">
-  <!-- Parte izquierda con formulario -->
-  <div class="w-50 d-flex align-items-center justify-content-center h-100 bg-light position-relative" style="z-index: 1;">
-    <!-- Curva violeta pegada al borde derecho -->
-    <div class="position-absolute top-0 end-0 h-100" style="width: 200px; z-index: 2;">
-      <svg class="w-100 h-100" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <path d="M 100 0 Q 30 50 100 100 L 0 100 L 0 0 Z" fill="#7b6cc9" />
-      </svg>
-    </div>
-
-    <!-- Formulario -->
+  <!-- Lado izquierdo gris claro con formulario -->
+  <div class="w-50 d-flex align-items-center justify-content-center h-100 bg-light" style="z-index: 1;">
     <div class="card shadow p-4 form-card">
       <h3 class="text-center mb-4 text-secondary">Registrarse</h3>
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -42,8 +34,15 @@
     </div>
   </div>
 
-  <!-- Parte derecha con color violeta e ícono -->
-  <div class="w-50 h-100 bg-purple d-flex align-items-center justify-content-center">
-    <i class="bi bi-person-fill display-1" style="color: #b89ef2;"></i>
+  <!-- Lado derecho violeta con ícono -->
+<div class="w-50 h-100 bg-purple d-flex align-items-center justify-content-center">
+  <i class="bi bi-person-circle display-1" style="color: #b89ef2;"></i>
+</div>
+
+  <!-- Curva centrada, sobrepuesta, panza hacia la izquierda -->
+  <div class="position-absolute top-0 start-50 translate-middle-x h-100" style="width: 200px; z-index: 2; transform: translateX(-50%) translateX(-40px);">
+    <svg class="w-100 h-100" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <path d="M 100 0 Q 0 50 100 100 L 0 100 L 0 0 Z" fill="#f8f9fa" />
+    </svg>
   </div>
 </div>
