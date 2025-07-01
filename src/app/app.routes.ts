@@ -17,7 +17,7 @@ export const routes: Routes = [
       { path: 'restaurantes', component: RestaurantesComponent },
       { path: 'agregar-restaurante', component: AgregarRestauranteComponent },
       { path: 'editar-restaurante', component: EditarRestauranteComponent },
-      { path: 'ver-restaurante', component: VerRestauranteComponent },
+      { path: 'ver-restaurante/:id', component: VerRestauranteComponent },
     ],
   },
   { path: 'login', component: LoginComponent },

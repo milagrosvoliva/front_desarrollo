@@ -1,25 +1,73 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/login">Pedidos Ya</a>
+<!-- NAVBAR SUPERIOR -->
+<nav class="navbar navbar-expand-lg bg-purple text-white">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    
+    <!-- BOTÓN A LA IZQUIERDA -->
+    <button class="btn text-white" (click)="toggleMenu()">
+      <i class="bi bi-list fs-3"></i>
+    </button>
+
   </div>
 </nav>
-@if(isLoading()){
-<!-- Modal de carga -->
-<div class="modal fade show d-block" tabindex="-1" role="dialog"
+
+<!-- MENÚ LATERAL (solo visible si menuAbierto = true) -->
+<div
+  *ngIf="menuAbierto"
+  class="position-fixed top-0 start-0 h-100 bg-light shadow-sm p-3"
+  style="width: 240px; z-index: 1050;"
+>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h6 class="text-uppercase fw-bold m-0">Menu</h6>
+    <button class="btn btn-sm" (click)="toggleMenu()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <ul class="nav flex-column">
+    <!-- Opción fija -->
+    <li class="nav-item mb-2">
+      <a routerLink="/agregar-restaurante" class="nav-link d-flex align-items-center text-dark" (click)="toggleMenu()">
+        <i class="bi bi-plus-lg me-2"></i>
+        Agregar Restaurante
+      </a>
+    </li>
+
+    <!-- Submenú con toggle -->
+    <li class="nav-item mb-2">
+      <div class="nav-link d-flex justify-content-between align-items-center text-dark" style="cursor: pointer;" (click)="toggleSubmenu()">
+        <span>
+          <i class="bi bi-chevron-down me-2" [ngClass]="{'bi-chevron-up': submenuAbierto, 'bi-chevron-down': !submenuAbierto}"></i>
+          Restaurante Creado
+        </span>
+      </div>
+      <ul *ngIf="submenuAbierto" class="nav flex-column ms-3 mt-2">
+        <li class="nav-item"><a routerLink="/ver-restaurante" class="nav-link text-dark" (click)="toggleMenu()">Ver</a></li>
+        <li class="nav-item"><a routerLink="/editar-restaurante" class="nav-link text-dark" (click)="toggleMenu()">Editar</a></li>
+        <li class="nav-item"><a routerLink="/agregar-menu" class="nav-link text-dark" (click)="toggleMenu()">Agregar menú</a></li>
+        <li class="nav-item"><a routerLink="/eliminar-restaurante" class="nav-link text-dark" (click)="toggleMenu()">Eliminar</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+
+<!-- MODAL DE CARGA (si está cargando algo) -->
+<div *ngIf="isLoading()" class="modal fade show d-block" tabindex="-1" role="dialog"
   style="background-color: rgba(0, 0, 0, 0.5); z-index: 1050;">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content text-center p-4 border-0 shadow-lg" style="border-radius: 1rem;">
       <div class="d-flex flex-column align-items-center">
-        <!-- Spinner mejorado -->
         <div class="spinner-border text-primary mb-3" role="status" style="width: 4rem; height: 4rem;">
           <span class="visually-hidden">Cargando...</span>
         </div>
-        <!-- Texto -->
         <h5 class="modal-title mb-0">Cargando la página...</h5>
         <small class="text-muted mt-2">Por favor, espere un momento</small>
       </div>
     </div>
   </div>
 </div>
-}
-<router-outlet />
+
+<!-- CONTENIDO PRINCIPAL (router outlet) -->
+<div [class.ms-240]="menuAbierto" class="transition-all">
+  <router-outlet></router-outlet>
+</div>

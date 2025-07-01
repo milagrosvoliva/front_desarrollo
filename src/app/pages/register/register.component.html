@@ -1,3 +1,4 @@
+<!-- -->
 <div class="vh-100 d-flex position-relative">
   <!-- Lado izquierdo gris claro con formulario -->
   <div class="w-50 d-flex align-items-center justify-content-center h-100 bg-light" style="z-index: 1;">
@@ -5,6 +6,8 @@
       <h3 class="text-center mb-4 text-secondary">Registrarse</h3>
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <div class="mb-3">
+                                      <!--CAMPOS DEL FORMULARIO -->
+          <!--Cada uno tiene su input y su formControlName asociado: -->
           <label>Nombre</label>
           <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
         </div>
@@ -28,15 +31,16 @@
           <label>Confirmar contraseña</label>
           <input type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirmar contraseña">
         </div>
-
+                                      <!--BOTÓN, Envía el formulario.-->
         <button type="submit" class="btn btn-primary w-100">Registrarse</button>
       </form>
     </div>
   </div>
 
   <!-- Lado derecho violeta con ícono -->
+  <!--Centra un ícono Bootstrap (bi-person-circle) para dar estilo visual. -->
 <div class="w-50 h-100 bg-purple d-flex align-items-center justify-content-center">
-  <i class="bi bi-person-circle display-1" style="color: #b89ef2;"></i>
+  <i class="bi bi-person-circle display-1" style="color: #b89ef2;"></i> 
 </div>
 
   <!-- Curva centrada, sobrepuesta, panza hacia la izquierda -->

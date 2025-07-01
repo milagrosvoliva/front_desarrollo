@@ -1,30 +1,58 @@
-<div class="container vh-100 d-flex justify-content-center align-items-center">
-  <div class="card shadow-lg p-4" style="min-width: 500px;">
-    <h2 class="text-center mb-4">Agregar Restaurante</h2>
+<!-- TÍTULO -->
+<header class="bg-purple text-white py-3 text-center">
+  <h2 class="mb-0">Añadir Restaurantes</h2>
+</header>
 
-    <form [formGroup]="restauranteForm" (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label class="fw-bold">Nombre del Restaurante</label>
-        <input type="text" class="form-control" formControlName="nombre">
+<!-- FORMULARIO -->
+<div class="container mt-5">
+  <h5 class="text-purple fw-bold mb-4">Complete la siguiente información</h5>
+
+  <form [formGroup]="restauranteForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre del restaurante</label>
+          <input type="text" class="form-control" id="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label for="street" class="form-label">Calle</label>
+          <input type="text" class="form-control" id="street" formControlName="street" />
+        </div>
+
+        <div class="mb-3">
+          <label for="number" class="form-label">Número</label>
+          <input type="text" class="form-control" id="number" formControlName="number" />
+        </div>
+
+        <div class="mb-3">
+          <label for="cityName" class="form-label">Ciudad</label>
+          <input type="text" class="form-control" id="cityName" formControlName="cityName" />
+        </div>
       </div>
 
-      <div class="mb-3">
-        <label class="fw-bold">Dirección</label>
-        <input type="text" class="form-control" formControlName="direccion">
-      </div>
+      <!-- COLUMNA DERECHA -->
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="lat" class="form-label">Latitud</label>
+          <input type="number" step="any" class="form-control" id="lat" formControlName="lat" />
+        </div>
 
-      <div class="mb-3">
-        <label class="fw-bold">ID</label>
-        <input type="text" class="form-control" formControlName="id">
-      </div>
+        <div class="mb-3">
+          <label for="lng" class="form-label">Longitud</label>
+          <input type="number" step="any" class="form-control" id="lng" formControlName="lng" />
+        </div>
 
-      <div class="mb-3">
-        <label class="fw-bold">URL de la Imagen</label>
-        <input type="text" class="form-control" formControlName="imagenUrl">
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">URL de imagen</label>
+          <input type="text" class="form-control" id="imageUrl" formControlName="imageUrl" />
+        </div>
       </div>
+    </div>
 
-      <button type="submit" class="btn btn-success w-100" [disabled]="restauranteForm.invalid">Agregar</button>
-    </form>
-  </div>
+    <!-- BOTÓN AÑADIR -->
+    <button class="btn btn-purple mt-3 px-4" type="submit" [disabled]="restauranteForm.invalid">Añadir</button>
+  </form>
 </div>
 

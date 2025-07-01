@@ -1,79 +1,27 @@
-<!-- Contenedor principal -->
-<div class="bg-light min-vh-100">
-  <!-- Encabezado -->
-  <header class="bg-purple text-white py-3 position-relative">
-    <div class="container d-flex align-items-center">
-      <button class="btn text-white me-3">
-        <i class="bi bi-list fs-3"></i>
-      </button>
-      <h2 class="text-center w-100 mb-0">Restaurantes</h2>
-    </div>
-  </header>
+<div class="container mt-4">
+  <h2 class="text-purple mb-4 text-center">Restaurantes</h2>
 
-  <!-- Lista de tarjetas -->
-  <div class="container my-5">
-    <div class="row g-4 justify-content-center">
-      <div class="col-md-5">
-        <div class="card shadow rounded-4 p-3">
-          <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
-              <div class="rounded-circle bg-purple text-white d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">
-                M
-              </div>
-              <div>
-                <div class="fw-bold">Mood</div>
-                <div class="text-muted small">Villa María</div>
-              </div>
-            </div>
-            <i class="bi bi-three-dots-vertical"></i>
-          </div>
-          <img src="assets/mood.png" alt="Mood" class="img-fluid my-3" style="background-color: black;" />
-          <h6>Bienvenidos</h6>
-          <p class="text-muted small">
-            Somos un espacio gastronómico vanguardista que ubica al cliente en una posición privilegiada, como centro de importancia. MOOD (estado de ánimo) aludiendo a la preferencia anímica de las personas, proponemos a nuestro público el “PODER DE ELECCIÓN”.
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <!-- Una grilla responsiva que se adapta a tamaño de pantalla -->
+
+    <div class="col" *ngFor="let r of restaurantes">
+      <div class="card h-100 shadow-sm rounded-3">
+        <!-- Tarjeta con sombra y esquinas redondeadas -->
+
+        <img [src]="r.imageUrl" class="card-img-top" alt="Imagen del restaurante" style="height: 200px; object-fit: cover;" />
+
+        <div class="card-body">
+          <h5 class="card-title text-purple fw-bold">{{ r.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ r.address.city.name }}</h6>
+          <p class="card-text">
+            Dirección: {{ r.address.street }} {{ r.address.number }}
           </p>
-          <button class="btn btn-light-purple w-100">Ingresar</button>
+        </div>
+
+        <div class="card-footer bg-transparent border-0 text-end">
+          <button class="btn btn-purple" [routerLink]="['/ver-restaurante', r.id]">Ingresar</button>
         </div>
       </div>
-
-      <!-- Segunda tarjeta -->
-      <div class="col-md-5">
-        <div class="card shadow rounded-4 p-3">
-          <div class="d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
-              <div class="rounded-circle bg-purple text-white d-flex align-items-center justify-content-center me-2" style="width: 35px; height: 35px;">
-                A
-              </div>
-              <div>
-                <div class="fw-bold">Ala Manchada</div>
-                <div class="text-muted small">Villa María</div>
-              </div>
-            </div>
-            <i class="bi bi-three-dots-vertical"></i>
-          </div>
-          <img src="assets/ala-manchada.jpg" alt="Ala Manchada" class="img-fluid my-3" style="background-color: black;" />
-          <h6>Bienvenidos</h6>
-          <p class="text-muted small">
-            Somos un espacio gastronómico vanguardista que ubica al cliente en una posición privilegiada, como centro de importancia. MOOD (estado de ánimo) aludiendo a la preferencia anímica de las personas, proponemos a nuestro público el “PODER DE ELECCIÓN”.
-          </p>
-          <button class="btn btn-light-purple w-100">Ingresar</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Paginación -->
-    <div class="d-flex justify-content-center mt-5">
-      <ul class="pagination pagination-sm">
-        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">4</a></li>
-        <li class="page-item"><a class="page-link" href="#">5</a></li>
-        <li class="page-item"><a class="page-link" href="#">6</a></li>
-        <li class="page-item"><a class="page-link" href="#">7</a></li>
-        <li class="page-item"><a class="page-link" href="#">8</a></li>
-        <li class="page-item"><a class="page-link" href="#">9</a></li>
-      </ul>
     </div>
   </div>
 </div>

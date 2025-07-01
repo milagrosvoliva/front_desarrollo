@@ -1,0 +1,14 @@
+/*para estilos al navbar, al fondo, al modal, etc. */
+
+.bg-purple {
+  background-color: #7b6cc9 !important;
+}
+
+/* para menu */
+.ms-240 {
+  margin-left: 240px;
+}
+
+.transition-all {
+  transition: margin-left 0.3s ease;
+}

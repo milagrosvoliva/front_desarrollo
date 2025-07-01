@@ -1,13 +1,14 @@
+/*Fondo*/
 .bg-purple {
   background-color: #7b6cc9;
 }
-
+/*Registro */
 .form-card {
   border-radius: 20px;
   width: 400px;
   z-index: 3;
 }
-
+/*Boton*/
 button.btn-primary {
   background-color: #7b6cc9;
   border: none;

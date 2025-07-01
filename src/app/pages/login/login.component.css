@@ -1,13 +1,19 @@
+/* */
+
+/*estilos personalizados que complementan el diseño del formulario*/
 .bg-purple {
-  background-color: #7b6cc9;
+  background-color: #7b6cc9; /* Aplica un color violeta personalizado como fondo*/
 }
 
 .form-card {
-  border-radius: 20px;
-  width: 400px;
-  z-index: 3; /* Sobre la curva */
+  border-radius: 20px; /*20px: bordes redondeados. */
+  width: 400px; /*ancho fijo del formulario.*/
+  z-index: 3; /* Sobre la curva, asegura que el formulario esté por encima del decorativo SVG central. */
 }
-
+                              /*Botones personalizados*/
+/* Cambia el color de fondo de los botones a violeta, igual que el lado izquierdo.
+Quita los bordes por defecto (border: none).
+Afecta tanto al botón "Ingresar" como al de "Registrarse". */
 button.btn-primary,
 button.btn-secondary {
   background-color: #7b6cc9;

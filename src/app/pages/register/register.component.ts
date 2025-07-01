@@ -16,12 +16,14 @@ export class RegisterComponent {
     this.registerForm = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]], //El email también se valida con formato Validators.email.
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required]
     }, { validators: this.passwordMatchValidator });
   }
-
+                                // VALIDADOR DE CONTRASEÑAS
+// Si password y confirmPassword son iguales, retorna null (válido).
+// Si son distintos, retorna { mismatch: true }, lo que marca el formulario como inválido.
   passwordMatchValidator(form: FormGroup) {
     return form.get('password')?.value === form.get('confirmPassword')?.value
       ? null : { mismatch: true };
